@@ -1,0 +1,153 @@
+create table User (
+	id int not null auto_increment primary key,
+    date_created string,
+    status int,
+    name string,
+    email string,
+    password string,
+    phone string,
+    cpf string
+),
+
+create table Restaurant (
+	id int not null auto_increment primary key,
+    date_created string,
+    status int,
+    name string,
+    description string,
+    phone string,
+    rate string,
+    cnpj string
+),
+
+create table Restaurant_category (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    name string,
+    description string
+)
+
+create table Address (
+	id int not null auto_increment primary key,
+    date_created string,
+    status int,
+    street string,
+    district string,
+    cep string,
+    number string,
+    complement string,
+    default int
+),
+
+create table Product (
+	id int not null auto_increment primary key,
+    date_created string,
+    status int,
+    name string,
+    price int,
+    description string
+),
+
+create table Product_category (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    name string,
+    description string,
+),
+
+create table Product_add (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    name string,
+    description string,
+    price int,
+),
+
+create table Product_add_registry (
+	
+),
+
+create table Order_history (
+	id int not null auto_increment primary key,
+),
+
+create table Order (
+	id int not null auto_increment primary key,
+    delivery_fee int,
+    total_price int,
+    description string,
+    is_withdraw bool
+),
+
+create table Oder_status (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    name string,
+    description string
+),
+
+create table Order_production (
+	id int not null auto_increment primary key,
+),
+
+create table Oder_production_add (
+	quantity int
+),
+
+create table Business_hours (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    day string,
+    opening string,
+    closing string
+),
+
+create table Rating (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    oder_rating int,
+    description string
+),
+
+create table Favorite (
+	id int not null auto_increment primary key
+),
+
+create table Cupom (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    code string,
+    price int,
+    description string,
+),
+
+create table Payment (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    price int,
+    date_hour string,
+),
+
+create table Payment_method (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    name string,
+    description string
+),
+
+create table Payment_status (
+	id int not null auto_increment primary key,
+    data_created string,
+    status int,
+    name string,
+    description string,
+),
