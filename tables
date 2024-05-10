@@ -17,7 +17,8 @@ create table Restaurant (
     description varchar(100),
     phone varchar(13),
     rate varchar(10),
-    cnpj varchar(11)
+    cnpj varchar(11),
+    id_restaurant_category int
 );
 
 create table Restaurant_category (
@@ -36,7 +37,9 @@ create table Address (
     district varchar(30),
     cep varchar(9),
     number varchar(13),
-    complement varchar(30)
+    complement varchar(30),
+    id_user int,
+    id_restaurant int
 );
 
 create table Product (
@@ -45,7 +48,9 @@ create table Product (
     status int,
     name varchar(50),
     price int,
-    description varchar(100)
+    description varchar(100),
+    id_prduct_category int,
+    id_restaurant int
 );
 
 create table Product_category (
@@ -66,11 +71,14 @@ create table Product_add (
 );
 
 create table Product_add_registry (
-	
+	id_product int,
+    id_add int
 );
 
 create table Order_history (
-	id int not null auto_increment primary key
+	id int not null auto_increment primary key,
+    id_order int,
+    id_status int
 );
 
 create table Ordering (
@@ -78,7 +86,12 @@ create table Ordering (
     delivery_fee int,
     total_price int,
     description varchar(100),
-    is_withdraw bool
+    is_withdraw bool,
+    id_address int,
+    id_user int,
+    id_restaurant int,
+    id_cupom int,
+    id_status int
 );
 
 create table Order_status (
@@ -90,11 +103,15 @@ create table Order_status (
 );
 
 create table Order_production (
-	id int not null auto_increment primary key
+	id int not null auto_increment primary key,
+    id_order int,
+    id_product int
 );
 
 create table Order_production_add (
-	quantity int
+	quantity int,
+    id_order_production int,
+    id_product_add int
 );
 
 create table Business_hours (
@@ -110,12 +127,15 @@ create table Rating (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    oder_rating int,
-    description varchar(100)
+    order_rating int,
+    description varchar(100),
+    id_order int
 );
 
 create table Favorite (
-	id int not null auto_increment primary key
+	id int not null auto_increment primary key,
+    id_user int,
+    id_restaurant int
 );
 
 create table Cupom (
@@ -132,7 +152,10 @@ create table Payment (
     data_created varchar(10),
     status int,
     price int,
-    date_hour varchar(10)
+    date_hour varchar(10),
+    id_order int,
+    id_payment_method int,
+    id_payment_status int
 );
 
 create table Payment_method (
