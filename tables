@@ -93,7 +93,7 @@ create table Order_production (
 	id int not null auto_increment primary key
 );
 
-create table Oder_production_add (
+create table Order_production_add (
 	quantity int
 );
 
