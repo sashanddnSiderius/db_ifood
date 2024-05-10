@@ -1,123 +1,122 @@
 create table User (
 	id int not null auto_increment primary key,
-    date_created string,
+    date_created varchar(10),
     status int,
-    name varcahr(100),
-    email varchar(100),
+    name varchar(50),
+    email varchar(50),
     password varchar(30),
     phone varchar(13),
     cpf varchar(11)
-),
+);
 
 create table Restaurant (
 	id int not null auto_increment primary key,
-    date_created string,
+    date_created varchar(10),
     status int,
-    name varcahr(100),
+    name varchar(50),
     description varchar(100),
     phone varchar(13),
     rate varchar(10),
     cnpj varchar(11)
-),
+);
 
 create table Restaurant_category (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    name varchar(100),
+    name varchar(50),
     description varchar(100)
-)
+);
 
 create table Address (
 	id int not null auto_increment primary key,
     date_created varchar(10),
     status int,
-    street varchar(50),
-    district varchar(50),
-    cep varchar(7),
+    street varchar(30),
+    district varchar(30),
+    cep varchar(9),
     number varchar(13),
-    complement varchar(50),
-    default int
-),
+    complement varchar(30)
+);
 
 create table Product (
 	id int not null auto_increment primary key,
     date_created varchar(10),
     status int,
-    name varchar(100),
+    name varchar(50),
     price int,
-    description varchar(50)
-),
+    description varchar(100)
+);
 
 create table Product_category (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    name varchar(100),
-    description varchar(50),
-),
+    name varchar(50),
+    description varchar(100)
+);
 
 create table Product_add (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    name varchar(100),
-    description varchar(50),
-    price int,
-),
+    name varchar(50),
+    description varchar(100),
+    price int
+);
 
 create table Product_add_registry (
 	
-),
+);
 
 create table Order_history (
-	id int not null auto_increment primary key,
-),
+	id int not null auto_increment primary key
+);
 
-create table Order (
+create table Ordering (
 	id int not null auto_increment primary key,
     delivery_fee int,
     total_price int,
-    description varchar(50),
+    description varchar(100),
     is_withdraw bool
-),
+);
 
-create table Oder_status (
+create table Order_status (
 	id int not null auto_increment primary key,
-    data_created string,
+    data_created varchar(10),
     status int,
-    name varchar(100),
-    description varchar(50)
-),
+    name varchar(50),
+    description varchar(100)
+);
 
 create table Order_production (
-	id int not null auto_increment primary key,
-),
+	id int not null auto_increment primary key
+);
 
 create table Oder_production_add (
 	quantity int
-),
+);
 
 create table Business_hours (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    day varchar(20),
+    day varchar(10),
     opening varchar(10),
     closing varchar(10)
-),
+);
 
 create table Rating (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
     oder_rating int,
-    description varchar(50)
-),
+    description varchar(100)
+);
 
 create table Favorite (
 	id int not null auto_increment primary key
-),
+);
 
 create table Cupom (
 	id int not null auto_increment primary key,
@@ -125,29 +124,29 @@ create table Cupom (
     status int,
     code varchar(20),
     price int,
-    description varchar(50)
-),
+    description varchar(100)
+);
 
 create table Payment (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
     price int,
-    date_hour varchar(20),
-),
+    date_hour varchar(10)
+);
 
 create table Payment_method (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    name varchar(100),
-    description varchar(50)
-),
+    name varchar(50),
+    description varchar(100)
+);
 
 create table Payment_status (
 	id int not null auto_increment primary key,
     data_created varchar(10),
     status int,
-    name varchar(100),
-    description varchar(50)
-),
+    name varchar(50),
+    description varchar(100)
+);
