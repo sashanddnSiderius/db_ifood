@@ -173,3 +173,49 @@ create table Payment_status (
     name varchar(50),
     description varchar(100)
 );
+
+alter table Address
+add foreign key (id_user) references User(id),
+add foreign key (id_restaurant) references Restaurant(id);
+
+alter table Restaurant
+add foreign key (id_restaurant_category) references Restaurant_category(id);
+
+alter table Product
+add foreign key (id_prduct_category) references Product_category(id),
+add foreign key (id_restaurant) references Restaurant(id);
+
+alter table Rating
+add foreign key (id_order) references Ordering(id);
+
+alter table Order_history
+add foreign key (id_order) references Ordering(id),
+add foreign key (id_status) references Order_status(id);
+
+alter table Product_add_registry
+add foreign key (id_product) references Product(id),
+add foreign key (id_add) references Product_add(id);
+
+alter table Favorite
+add foreign key (id_user) references User(id),
+add foreign key (id_restaurant) references Restaurant(id);
+
+alter table Ordering
+add foreign key (id_address) references Address(id),
+add foreign key (id_user) references User(id),
+add foreign key (id_restaurant) references Restaurant(id),
+add foreign key (id_cupom) references Cupom(id),
+add foreign key (id_status) references Order_status(id);
+
+alter table Order_production
+add foreign key (id_order) references Ordering(id),
+add foreign key (id_product) references Product(id);
+
+alter table Order_production_add
+add foreign key (id_order_production) references Order_production(id),
+add foreign key (id_product_add) references Product_add(id);
+
+alter table Payment
+add foreign key (id_order) references Ordering(id),
+add foreign key (id_payment_method) references Payment_method(id),
+add foreign key (id_payment_status) references Payment_status(id);
