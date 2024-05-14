@@ -3,11 +3,11 @@ create table User (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
-    email varchar(50),
-    password varchar(30),
-    phone varchar(13),
-    cpf varchar(11)
+    name varchar(50) not null,
+    email varchar(50) not null,
+    password varchar(30) not null,
+    phone varchar(13) not null,
+    cpf varchar(11) not null
 );
 
 create table Restaurant (
@@ -15,11 +15,11 @@ create table Restaurant (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100),
-    phone varchar(13),
+    phone varchar(13) not null,
     rate varchar(10),
-    cnpj varchar(11),
+    cnpj varchar(11) not null,
     id_restaurant_category int
 );
 
@@ -28,7 +28,7 @@ create table Restaurant_category (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100)
 );
 
@@ -37,10 +37,10 @@ create table Address (
     date_created date(10),
     date time,
     status int,
-    street varchar(30),
-    district varchar(30),
-    cep varchar(9),
-    number varchar(13),
+    street varchar(30) not null,
+    district varchar(30) not null,
+    cep varchar(9) not null,
+    number varchar(13) not null,
     complement varchar(30),
     id_user int,
     id_restaurant int
@@ -51,8 +51,8 @@ create table Product (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
-    price double,
+    name varchar(50) not null,
+    price double not null,
     description varchar(100),
     id_prduct_category int,
     id_restaurant int
@@ -63,7 +63,7 @@ create table Product_category (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100)
 );
 
@@ -72,7 +72,7 @@ create table Product_add (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100),
     price double
 );
@@ -106,7 +106,7 @@ create table Order_status (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100)
 );
 
@@ -138,7 +138,7 @@ create table Rating (
     date time,
     status int,
     order_rating int,
-    description varchar(100),
+    description varchar(100) not null,
     id_order int
 );
 
@@ -153,7 +153,7 @@ create table Cupom (
     date_created date(10),
     date time,
     status int,
-    code varchar(20),
+    code varchar(20) not null,
     price double,
     description varchar(100)
 );
@@ -164,7 +164,7 @@ create table Payment (
     date time,
     status int,
     price double,
-    date_hour varchar(10),
+    date_hour date,
     id_order int,
     id_payment_method int,
     id_payment_status int
@@ -175,7 +175,7 @@ create table Payment_method (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100)
 );
 
@@ -184,7 +184,7 @@ create table Payment_status (
     date_created date(10),
     date time,
     status int,
-    name varchar(50),
+    name varchar(50) not null,
     description varchar(100)
 );
 
