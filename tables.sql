@@ -1,6 +1,7 @@
 create table User (
 	id int not null auto_increment primary key,
-    date_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     email varchar(50),
@@ -11,7 +12,8 @@ create table User (
 
 create table Restaurant (
 	id int not null auto_increment primary key,
-    date_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100),
@@ -23,7 +25,8 @@ create table Restaurant (
 
 create table Restaurant_category (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100)
@@ -31,7 +34,8 @@ create table Restaurant_category (
 
 create table Address (
 	id int not null auto_increment primary key,
-    date_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     street varchar(30),
     district varchar(30),
@@ -44,10 +48,11 @@ create table Address (
 
 create table Product (
 	id int not null auto_increment primary key,
-    date_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
-    price int,
+    price double,
     description varchar(100),
     id_prduct_category int,
     id_restaurant int
@@ -55,7 +60,8 @@ create table Product (
 
 create table Product_category (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100)
@@ -63,11 +69,12 @@ create table Product_category (
 
 create table Product_add (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100),
-    price int
+    price double
 );
 
 create table Product_add_registry (
@@ -84,7 +91,7 @@ create table Order_history (
 create table Ordering (
 	id int not null auto_increment primary key,
     delivery_fee int,
-    total_price int,
+    total_price double,
     description varchar(100),
     is_withdraw bool,
     id_address int,
@@ -96,7 +103,8 @@ create table Ordering (
 
 create table Order_status (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100)
@@ -116,7 +124,8 @@ create table Order_production_add (
 
 create table Business_hours (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     day varchar(10),
     opening varchar(10),
@@ -125,7 +134,8 @@ create table Business_hours (
 
 create table Rating (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     order_rating int,
     description varchar(100),
@@ -140,18 +150,20 @@ create table Favorite (
 
 create table Cupom (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     code varchar(20),
-    price int,
+    price double,
     description varchar(100)
 );
 
 create table Payment (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
-    price int,
+    price double,
     date_hour varchar(10),
     id_order int,
     id_payment_method int,
@@ -160,7 +172,8 @@ create table Payment (
 
 create table Payment_method (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100)
@@ -168,7 +181,8 @@ create table Payment_method (
 
 create table Payment_status (
 	id int not null auto_increment primary key,
-    data_created varchar(10),
+    date_created date(10),
+    date time,
     status int,
     name varchar(50),
     description varchar(100)
