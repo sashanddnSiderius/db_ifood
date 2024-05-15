@@ -1,6 +1,6 @@
 create table User (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -12,7 +12,7 @@ create table User (
 
 create table Restaurant (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -25,7 +25,7 @@ create table Restaurant (
 
 create table Restaurant_category (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -34,7 +34,7 @@ create table Restaurant_category (
 
 create table Address (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     street varchar(30) not null,
@@ -48,7 +48,7 @@ create table Address (
 
 create table Product (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -60,7 +60,7 @@ create table Product (
 
 create table Product_category (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -69,7 +69,7 @@ create table Product_category (
 
 create table Product_add (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -90,6 +90,9 @@ create table Order_history (
 
 create table Ordering (
 	id int not null auto_increment primary key,
+    date_created date,
+    date time,
+    status int,
     delivery_fee int,
     total_price double,
     description varchar(100),
@@ -103,7 +106,7 @@ create table Ordering (
 
 create table Order_status (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -124,7 +127,7 @@ create table Order_production_add (
 
 create table Business_hours (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     day varchar(10),
@@ -134,7 +137,7 @@ create table Business_hours (
 
 create table Rating (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     order_rating int,
@@ -150,7 +153,7 @@ create table Favorite (
 
 create table Cupom (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     code varchar(20) not null,
@@ -160,7 +163,7 @@ create table Cupom (
 
 create table Payment (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     price double,
@@ -172,7 +175,7 @@ create table Payment (
 
 create table Payment_method (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
@@ -181,7 +184,7 @@ create table Payment_method (
 
 create table Payment_status (
 	id int not null auto_increment primary key,
-    date_created date(10),
+    date_created date,
     date time,
     status int,
     name varchar(50) not null,
