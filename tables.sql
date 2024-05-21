@@ -1,46 +1,42 @@
 create table User (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    date_created varchar(10),
     status int,
-    name varchar(50) not null,
-    email varchar(50) not null,
-    password varchar(30) not null,
-    phone varchar(13) not null,
-    cpf varchar(11) not null
+    name varchar(50),
+    email varchar(50),
+    password varchar(30),
+    phone varchar(13),
+    cpf varchar(11)
 );
 
 create table Restaurant (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    date_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100),
-    phone varchar(13) not null,
+    phone varchar(13),
     rate varchar(10),
-    cnpj varchar(11) not null,
+    cnpj varchar(11),
     id_restaurant_category int
 );
 
 create table Restaurant_category (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100)
 );
 
 create table Address (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    date_created varchar(10),
     status int,
-    street varchar(30) not null,
-    district varchar(30) not null,
-    cep varchar(9) not null,
-    number varchar(13) not null,
+    street varchar(30),
+    district varchar(30),
+    cep varchar(9),
+    number varchar(13),
     complement varchar(30),
     id_user int,
     id_restaurant int
@@ -48,11 +44,10 @@ create table Address (
 
 create table Product (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    date_created varchar(10),
     status int,
-    name varchar(50) not null,
-    price double not null,
+    name varchar(50),
+    price int,
     description varchar(100),
     id_product_category int,
     id_restaurant int
@@ -60,21 +55,19 @@ create table Product (
 
 create table Product_category (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100)
 );
 
 create table Product_add (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100),
-    price double
+    price int
 );
 
 create table Product_add_registry (
@@ -90,11 +83,8 @@ create table Order_history (
 
 create table Ordering (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
-    status int,
     delivery_fee int,
-    total_price double,
+    total_price int,
     description varchar(100),
     is_withdraw bool,
     id_address int,
@@ -106,10 +96,9 @@ create table Ordering (
 
 create table Order_status (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100)
 );
 
@@ -127,8 +116,7 @@ create table Order_production_add (
 
 create table Business_hours (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
     day varchar(10),
     opening varchar(10),
@@ -137,11 +125,10 @@ create table Business_hours (
 
 create table Rating (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
     order_rating int,
-    description varchar(100) not null,
+    description varchar(100),
     id_order int
 );
 
@@ -153,21 +140,19 @@ create table Favorite (
 
 create table Cupom (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    code varchar(20) not null,
-    price double,
+    code varchar(20),
+    price int,
     description varchar(100)
 );
 
 create table Payment (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    price double,
-    date_hour date,
+    price int,
+    date_hour varchar(10),
     id_order int,
     id_payment_method int,
     id_payment_status int
@@ -175,19 +160,17 @@ create table Payment (
 
 create table Payment_method (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100)
 );
 
 create table Payment_status (
 	id int not null auto_increment primary key,
-    date_created date,
-    date time,
+    data_created varchar(10),
     status int,
-    name varchar(50) not null,
+    name varchar(50),
     description varchar(100)
 );
 
@@ -199,7 +182,7 @@ alter table Restaurant
 add foreign key (id_restaurant_category) references Restaurant_category(id);
 
 alter table Product
-add foreign key (id_prduct_category) references Product_category(id),
+add foreign key (id_product_category) references Product_category(id),
 add foreign key (id_restaurant) references Restaurant(id);
 
 alter table Rating
@@ -268,6 +251,7 @@ INSERT INTO Restaurant (name, description, phone, cnpj, id_restaurant_category) 
 ('Burger King', 'Hambúrgueres de fama mundial', '11990123456', '12345678009', 2),
 ('Sushi Express', 'Sushis rápidos e frescos', '11901234567', '12345678010', 5);
 
+
 INSERT INTO Address (street, district, cep, number, complement, id_user) VALUES
 ('Rua das Cerejeiras', 'Jardim das Acácias', '12345-678', '101', 'Apto 201', 1),
 ('Avenida Portuguesa', 'Centro', '23456-789', '202', 'Bloco B', 2),
@@ -300,47 +284,26 @@ INSERT INTO Product_category (name, description) VALUES
 ('Lanche', 'Lanches em geral');
 
 INSERT INTO Product (name, price, description, id_product_category, id_restaurant) VALUES
-('Pizza de Calabresa', 55, 'Calabresa com molho, queijo e cebola', 1),
-('Pizza de Mussarela', 50, 'Molho e mussarela', 1),
-('Pizza Portuguesa', 55, 'Queijo mussarela, presunto, ovo, tomate e pimentão', 1),
-('Pizza de Frango com Cream Cheese', 70, 'Frango com cream cheese', 1),
-('Pizza de Brigadeiro', 60, 'Pizza doce de brigadeiro e granulado', 1),
-('Pizza de Doce de Leite', 60, 'Pizza doce', 1),
-('Pizza Cartola', 60, 'Pizza de banana com canela', 1),
-('Pizza Marguerita', 75, 'Pizza de mussarela com mengericão e tomate', 1),
-('Pizza 4 Queijos', 70, 'Pizza de mussarela, cream cheese, chedar e catupiry', 1),
-('Pizza de Lombo', 65, 'Pizza de lombo suíno com cream cheese', 1)
-('Sushi de Salmão 20 peças', 50, 'Salmão, abacate e cream cheese', 2),
-('Nigirizushi 20 peças', 45, 'Salmão com wasabi', 2),
-('Gunkanzushi 20 peças', 60, 'Nori com ovas de peixe', 2),
-('Kappamaki 20 peças', 50, 'Sushi de pepino', 2),
-('Takkemaki 20 peças', 50, 'Sushi de atum', 2),
-('Uramaki 20 peças', 50, 'Sushi ao contrario', 2),
-('Futomaki 20 peças', 60, 'Omelete, gengibre, legumes, peixe e raízes', 2),
-('Temaki', 40, 'Arroz, peixe, frutos do mar, legumes e frutas', 2),
-('Hot Holl de Salmão 20 peças', 40, 'Sushi empanado e frito de salmão', 2),
-('Hot Holl de Skin 20 peças', 35, 'Sushi empanado e frito de pele de peixe', 2),
-('Picanha', 80, 'A picanha é um corte triangular, que deve ter uma espessa capa de gordura', 3),
-('Contra Filé', 70, 'É um corte extremamente macio, principalmente quando a peça de carne é bem marmorizada, com uma boa distribuição de gordura entre as fibras da carne', 3),
-('Alcatra', 75, 'Macia com sabor intenso', 3),
-('Maminha', 60, 'Macia com sabor suave', 3),
-('Fraldinha', 65, 'Carnes com fribras curta que se destaca de outros cortes', 3),
-('Costela', 75, 'Corte ponta de agulha', 3),
-('Filé Mignon', 100, 'Um dos cortes mais famosos envolvido com fatias de bacon', 3),
-('PF Picadinho de Carne' 20, 'Feijão, arroz, macarrão, salada, purê e picadinho de boi', 4),
-('PF Creme de frango' 20, 'Feijão, arroz, macarrão, salada, purê e cremed e frango', 4),
-('PF Lombo' 20, 'Feijão, arroz, macarrão, salada, purê e lombo suíno', 4),
-('PF Parmegiana' 20, 'Feijão, arroz, macarrão, salada, purê e filé à parmegiana', 4),
-('PF Frango' 20, 'Feijão, arroz, macarrão, salada, purê e corte de frango', 4),
-('PF Feijoada' 20, 'Arroz, farofa, colve e feijoada', 4),
-('Hamburguer Mexicano', 20, 'Blend 100g com salada, molho picante', 5),
-('Americano', 15, 'Blend 100g com salada e ovo frito', 5),
-('Bauru', 25, 'Lombo, tomate e queijo mussarla', 5),
-('Harmburguer tradicial', 13, 'Blend 100g, salada e queijo mussarela', 5),
-('Japa', 22, 'Blend 100g, cebolas caramelizadas e queijo mussarela', 5),
-('Monarca', 35, 'Frango, carne desfiada, salada, quejo mussarela e ovo de codorna), 5);
+('Pizza Calabresa', 40, 'Tradicional de calabresa', 1, 2),
+('Pizza Marguerita', 50, 'Tradicional de marguerita', 1, 7),
+('Marmita P', 20, 'Marmita 1 carne', 4, 1),
+('Salandância de Pepinância', 25, 'Salada de pepino', 4, 6),
+('Picanha', 90, 'Peça de picanha', 3, 5),
+('Maminha', 80, 'Peça de maminha', 3, 5),
+('Sushi Salmão 20 peças', 40, 'Sushi Salmão Tradicional', 2, 4),
+('Hot Roll Skin 20 peças', 40, 'Hot Roll Skin', 2, 10),
+('Americano', 25, 'Americano tradicional', 5, 9),
+('X-burguer', 40, 'Cheese Burguer Tradicional', 5, 3),
+('Cheesecake', 40, 'Cheesecake Tradicional', 5, 8);
 
+INSERT INTO Product_add (name, description, price) VALUES
+('Cebola', 'Rodelas de cebola', 2),
+('Azeitona', 'Azeitona sem caroço', 3),
+('Canela', 'Canela em pó', 4);
 
+INSERT INTO Order_status (name, description) VALUES
+('Em análise', 'Analisando o pedido'),
+('Em produção', 'Seu pedido está sendo feito'),
+('Saiu para entrega', 'Seu produto está em roda de entrega'),
+('Entregue', 'Seu produto foi entregue');
 
-	
-	
